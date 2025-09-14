@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Severity Prediction</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f0e6; /* soft beige */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Form container */
+        form {
+            background-color: #efe6da; /* light cream */
+            padding: 25px 30px; /* smaller padding */
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(101, 77, 55, 0.3); /* subtle shadow */
+            width: 320px; /* smaller width */
+        }
+
+        h1 {
+            text-align: center;
+            color: #654d37; /* deep brown */
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        /* Labels and inputs */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #654d37;
+            font-size: 0.95em;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95em;
+            transition: border 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #654d37;
+            outline: none;
+            box-shadow: 0 0 4px rgba(101, 77, 55, 0.5);
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #654d37; /* deep brown */
+            color: #efe6da; /* light cream text */
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #856948; /* lighter brown for hover */
+            transform: translateY(-2px);
+        }
+
+        /* Prediction output */
+        h2 {
+            text-align: center;
+            margin-top: 15px;
+            color: #654d37;
+            background-color: #f7efe4;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h1>Disaster Severity Prediction</h1>
+
+        <label>Fatalities:</label>
+        <input type="number" name="fatalities" required>
+
+        <label>No. of Camps:</label>
+        <input type="number" name="camps" required>
+
+        <label>Actual Rainfall:</label>
+        <input type="number" name="rainfall" required>
+
+        <label>Normal Rainfall:</label>
+        <input type="number" name="normal_rainfall" required>
+
+        <label>No. of Landslides:</label>
+        <input type="number" name="landslides" required>
+
+        <label>Fully Damaged Houses:</label>
+        <input type="number" name="damaged_houses" required>
+
+        <label>District Code:</label>
+        <input type="number" name="district_code" required>
+
+        <button type="submit">Predict Severity</button>
+
+        {% if prediction %}
+            <h2>Predicted Severity: {{ prediction }}</h2>
+        {% endif %}
+    </form>
+</body>
+</html>
